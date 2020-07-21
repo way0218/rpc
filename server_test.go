@@ -23,7 +23,7 @@ var (
 	once, newOnce, httpOnce   sync.Once
 )
 
-const newHttpPath = "/foo"
+const newHTTPPath = "/foo"
 
 var debugLog = false
 
@@ -144,7 +144,7 @@ func startNewServer() {
 	log.Println("NewServer test RPC server listening on", newServerAddr)
 	go newServer.Accept(l)
 
-	newServer.HandleHTTP(newHttpPath, "/bar")
+	newServer.HandleHTTP(newHTTPPath, "/bar")
 	httpOnce.Do(startHTTPServer)
 }
 
@@ -323,7 +323,7 @@ func TestHTTP(t *testing.T) {
 	once.Do(startServer)
 	testHTTPRPC(t, "")
 	newOnce.Do(startNewServer)
-	testHTTPRPC(t, newHttpPath)
+	testHTTPRPC(t, newHTTPPath)
 }
 
 func testHTTPRPC(t *testing.T, path string) {

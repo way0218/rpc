@@ -115,8 +115,8 @@ import (
 )
 
 const (
-	// Defaults used by HandleHTTP
 	// DefaultRPCPath .
+	// Defaults used by HandleHTTP
 	DefaultRPCPath = "/_goRPC_"
 	// DefaultDebugPath .
 	DefaultDebugPath = "/debug/rpc"
